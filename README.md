@@ -4,7 +4,12 @@ The Bank of Flatiron React App is a web application that allows users to view a 
 ## Features
 
 ## Project Setup
+Follow these steps to set up and run the Bank of Flatiron React App on your local machine:
 
+1. Clone the Repository: Clone this repository to your local machine.
+2. Install Dependencies: Navigate to the project directory and install the required dependencies using npm(Node Package Manager).
+3. Start the App: Run the development server to start the application with npm start.
+4. Access the App: Once the server is running, open your web browser and navigate to http://localhost:3000/ to access the Bank of Flatiron React App.
 ## Authors
 Houstin Angwenyi
 ## License
