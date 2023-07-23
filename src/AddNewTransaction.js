@@ -18,7 +18,7 @@ const handleSubmitTransaction=(e)=>{
         date: '',
         description:'',
         category:'',
-        amount:0,
+        amount:'',
     })             
 }
 

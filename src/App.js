@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from "react";
 import TransactionsTable from "./TransactionsTable";
 import AddNewTransaction from "./AddNewTransaction";
+import TransactionFilter from "./TransactionFilter";
 
 function App() {
-
   const [transactions,setTransactions]=useState([])
+  const [searchTerm, setSearchTerm]=useState('')
     
   useEffect(()=>{
       fetchTransactions()
@@ -25,10 +26,19 @@ function App() {
     newTransaction={...newTransaction,id:transactions.length+1}
     setTransactions([...transactions,newTransaction])
   }
+
+  const handleFilterChange=(searchTerm)=>{
+    setSearchTerm(searchTerm)
+  }
+
+  const filteredTransactions=transactions.filter((transaction)=>
+  transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+  )
   return (
     <div className="App">
       <h2>Transactions</h2>
-      <TransactionsTable transactions={transactions}/>
+      <TransactionFilter onFilterChange={handleFilterChange}/>
+      <TransactionsTable transactions={filteredTransactions}/>
       <AddNewTransaction onAddTransaction={addTransaction}/>
     </div>
   );
