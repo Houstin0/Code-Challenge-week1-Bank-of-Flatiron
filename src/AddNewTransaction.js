@@ -7,9 +7,27 @@ const [newTranaction, setNewTransaction]=useState({
     amount:''
 })
 
-const handleAddTransaction=()=>{}
+const handleSubmitTransaction=(e)=>{
+    e.preventDefault()
+    
 
-const handleNewTransactionChange=(e)=>{}
+    setNewTransaction({
+        date: '',
+        description:'',
+        category:'',
+        amount:0,
+    })
+}
+
+const handleNewTransactionChange=(e)=>{
+    console.log(e.target.value);
+     const{name,value}=e.target
+
+    setNewTransaction({
+        ...newTranaction,[name]:value,
+    })
+    console.log(newTranaction);
+}
 
 return (
     <>
@@ -30,6 +48,7 @@ return (
         name="description"
         value={newTranaction.description}
         onChange={handleNewTransactionChange}
+    
         />
     </label>
     <label>
@@ -50,7 +69,7 @@ return (
         onChange={handleNewTransactionChange}
         />
     </label>
-    <button onClick={handleAddTransaction}>Add Transaction</button>
+    <button onSubmit={handleSubmitTransaction}>Add Transaction</button>
     </>
 )
 
