@@ -1,6 +1,6 @@
 # Bank of Flatiron
 ## Description 
-The Bank of Flatiron React App is a web application that allows users to view a list of their recent bank transactions and offers various other features. This app is built using React, providing a user-friendly and intuitive interface for managing personal finances effectively.
+The Bank of Flatiron is a web application that allows users to view a list of their recent bank transactions and offers various other features. This app is built using React, providing a user-friendly and intuitive interface for managing personal finances effectively.
 ## Features
 
 ## Project Setup
