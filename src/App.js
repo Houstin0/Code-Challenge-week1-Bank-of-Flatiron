@@ -34,11 +34,21 @@ function App() {
   const filteredTransactions=transactions.filter((transaction)=>
   transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
   )
+  
+  const deleteTransactions=(transactionId)=>{
+    const updatedTransactions=transactions.filter(
+      (transaction)=>transaction.id!==transactionId)
+      setTransactions(updatedTransactions)
+  }
+   
   return (
     <div className="App">
       <h2>Transactions</h2>
       <TransactionFilter onFilterChange={handleFilterChange}/>
-      <TransactionsTable transactions={filteredTransactions}/>
+      <TransactionsTable 
+      transactions={filteredTransactions}
+      onDeleteTransaction={deleteTransactions}
+      />
       <AddNewTransaction onAddTransaction={addTransaction}/>
     </div>
   );
