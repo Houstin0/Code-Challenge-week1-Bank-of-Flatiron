@@ -1,5 +1,7 @@
 import React,{useState} from "react"
-function AddNewTransaction(){
+import TransactionsTable from "./TransactionsTable"
+
+function AddNewTransaction({onAddTransaction}){
 const [newTranaction, setNewTransaction]=useState({
     date: '',
     description:'',
@@ -9,14 +11,15 @@ const [newTranaction, setNewTransaction]=useState({
 
 const handleSubmitTransaction=(e)=>{
     e.preventDefault()
+    console.log(newTranaction);
+    onAddTransaction(newTranaction)
     
-
-    setNewTransaction({
+    setNewTransaction({   //resets the values
         date: '',
         description:'',
         category:'',
         amount:0,
-    })
+    })             
 }
 
 const handleNewTransactionChange=(e)=>{
@@ -32,6 +35,7 @@ const handleNewTransactionChange=(e)=>{
 return (
     <>
     <h2>Add New Transactions</h2>
+    <form onSubmit={handleSubmitTransaction}>
     <label>
         Date:
         <input
@@ -69,7 +73,9 @@ return (
         onChange={handleNewTransactionChange}
         />
     </label>
-    <button onSubmit={handleSubmitTransaction}>Add Transaction</button>
+    <button type="submit">Add Transaction</button>
+    </form>
+    <TransactionsTable/>
     </>
 )
 
