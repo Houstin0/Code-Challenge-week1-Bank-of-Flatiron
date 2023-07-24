@@ -1,5 +1,5 @@
 import React,{useState} from "react"
-import TransactionsTable from "./TransactionsTable"
+
 
 function AddNewTransactionForm({onAddTransaction}){
 const [newTranaction, setNewTransaction]=useState({
@@ -77,7 +77,6 @@ return (
     </label>
     <button type="submit">Add Transaction</button>
     </form>
-    {/* <TransactionsTable/> */}
     </>
 )
 
