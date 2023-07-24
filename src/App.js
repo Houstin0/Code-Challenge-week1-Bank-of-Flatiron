@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import TransactionsTable from "./TransactionsTable";
-import AddNewTransaction from "./AddNewTransaction";
+import AddNewTransactionForm from "./AddNewTransactionForm";
 import TransactionFilter from "./TransactionFilter";
 
 function App() {
@@ -40,16 +40,42 @@ function App() {
       (transaction)=>transaction.id!==transactionId)
       setTransactions(updatedTransactions)
   }
+
+  const [sortCriteria, setSortCriteria] = useState("date")
+  const [sortOrder, setSortOrder] = useState("asc")
+
+  const handleSortChange = (e) => {
+    const selectedSortCriteria = e.target.value;
+    if (selectedSortCriteria !== sortCriteria) {
+      setSortCriteria(selectedSortCriteria);
+      setSortOrder("asc"); // Reset to ascending order when changing criteria
+    } else {
+      // If the same criteria is selected again, reverse the sort order
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    }
+  };
    
   return (
     <div className="App">
       <h2>Transactions</h2>
       <TransactionFilter onFilterChange={handleFilterChange}/>
+      <div>
+        <label>
+          Sort By:
+          <select value={sortCriteria} onChange={handleSortChange}>
+            <option value={'category'}>Category</option>
+            <option value={'description'}>Description</option>
+          </select>
+        </label>
+        <span>{sortOrder==='asc'?'Ascending':'Descending'}</span>
+      </div>
       <TransactionsTable 
       transactions={filteredTransactions}
       onDeleteTransaction={deleteTransactions}
+      sortCriteria={sortCriteria}
+      sortOrder={sortOrder}
       />
-      <AddNewTransaction onAddTransaction={addTransaction}/>
+      <AddNewTransactionForm onAddTransaction={addTransaction}/>
     </div>
   );
 }

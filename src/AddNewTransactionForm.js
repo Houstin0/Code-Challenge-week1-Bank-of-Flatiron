@@ -1,8 +1,9 @@
 import React,{useState} from "react"
 import TransactionsTable from "./TransactionsTable"
 
-function AddNewTransaction({onAddTransaction}){
+function AddNewTransactionForm({onAddTransaction}){
 const [newTranaction, setNewTransaction]=useState({
+    id:'',
     date: '',
     description:'',
     category:'',
@@ -14,7 +15,8 @@ const handleSubmitTransaction=(e)=>{
     console.log(newTranaction);
     onAddTransaction(newTranaction)
     
-    setNewTransaction({   //resets the values
+    setNewTransaction({ 
+        id:'',  //resets the values
         date: '',
         description:'',
         category:'',
@@ -75,11 +77,11 @@ return (
     </label>
     <button type="submit">Add Transaction</button>
     </form>
-    <TransactionsTable/>
+    {/* <TransactionsTable/> */}
     </>
 )
 
 
 }
 
-export default AddNewTransaction
+export default AddNewTransactionForm

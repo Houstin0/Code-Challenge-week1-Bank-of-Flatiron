@@ -1,7 +1,12 @@
 import React from "react"
-function TransactionsTable ({transactions=[],onDeleteTransaction}){
-    
-
+function TransactionsTable ({transactions=[],onDeleteTransaction,sortCriteria, sortOrder}){
+    const sortedTransactions = [...transactions].sort((a, b) => {
+        if (sortOrder === "asc") {
+          return a[sortCriteria].localeCompare(b[sortCriteria]);
+        } else {
+          return b[sortCriteria].localeCompare(a[sortCriteria]);
+        }
+      });
   return (
         <table>
             <thead>
@@ -13,7 +18,7 @@ function TransactionsTable ({transactions=[],onDeleteTransaction}){
             </tr>
             </thead>
         <tbody>
-            {transactions.map((transaction) => (
+            {sortedTransactions.map((transaction) => (
             <tr key={transaction.id}>
               <td>{transaction.date}</td>
               <td>{transaction.description}</td>
