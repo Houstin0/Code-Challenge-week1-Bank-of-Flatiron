@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TransactionsTable from "./TransactionsTable";
-import AddNewTransactionForm from "./AddNewTransactionForm";
-import TransactionSearchFilter from "./TransactionSearchFilter";
+import TransactionsTable from "./components/TransactionsTable";
+import AddNewTransactionForm from "./components/AddNewTransactionForm";
+import TransactionSearchFilter from "./components/TransactionSearchFilter";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
