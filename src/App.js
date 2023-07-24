@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import TransactionsTable from "./TransactionsTable";
 import AddNewTransactionForm from "./AddNewTransactionForm";
-import TransactionFilter from "./TransactionFilter";
+import TransactionSearchFilter from "./TransactionSearchFilter";
 
 function App() {
   const [transactions,setTransactions]=useState([])
@@ -57,8 +57,8 @@ function App() {
    
   return (
     <div className="App">
-      <h2>Transactions</h2>
-      <TransactionFilter onFilterChange={handleFilterChange}/>
+      <h1>Transactions</h1>
+      <TransactionSearchFilter onFilterChange={handleFilterChange}/>
       <div>
         <label>
           Sort By:
@@ -67,7 +67,7 @@ function App() {
             <option value={'description'}>Description</option>
           </select>
         </label>
-        <span>{sortOrder==='asc'?'Ascending':'Descending'}</span>
+        <span>Order: {sortOrder==='asc'?'Ascending':'Descending'}</span>
       </div>
       <TransactionsTable 
       transactions={filteredTransactions}

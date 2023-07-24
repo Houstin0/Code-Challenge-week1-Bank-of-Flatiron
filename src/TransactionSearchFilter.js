@@ -1,5 +1,5 @@
 import React from "react";
-function TransactionFilter({onFilterChange}) {
+function TransactionSearchFilter({onFilterChange}) {
     const handleInputChange=(e)=>{
         const searchItem=e.target.value
         onFilterChange(searchItem)
@@ -18,4 +18,4 @@ function TransactionFilter({onFilterChange}) {
     </>
  )
 }
-export default TransactionFilter
+export default TransactionSearchFilter
