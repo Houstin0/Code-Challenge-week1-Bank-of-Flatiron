@@ -16,7 +16,7 @@ const handleSubmitTransaction=(e)=>{
     onAddTransaction(newTranaction)
     
     setNewTransaction({ 
-        id:'',  //resets the values
+        id:'',
         date: '',
         description:'',
         category:'',
@@ -25,7 +25,6 @@ const handleSubmitTransaction=(e)=>{
 }
 
 const handleNewTransactionChange=(e)=>{
-    console.log(e.target.value);
      const{name,value}=e.target
 
     setNewTransaction({

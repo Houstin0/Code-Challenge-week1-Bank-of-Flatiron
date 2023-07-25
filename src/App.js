@@ -44,23 +44,15 @@ function App() {
   };
 
   const deleteTransaction = (transactionId) => {
-    fetch(`https://animeworld-lgf0.onrender.com/transactions/${transactionId}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => {
+   
         
         const updatedTransactions = transactions.filter(
           (transaction) => transaction.id !== transactionId
         );
         console.log(updatedTransactions);
         setTransactions(updatedTransactions);
-      })
-      .catch((error) => {
-        console.error("Error deleting transaction", error);
-      });
-  };
-
+     
+        }
   const filteredTransactions =
     transactions.filter((transaction) =>{
       if(transaction.description){
